@@ -17,6 +17,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/users", async (req, res) => {
+
+  req.body.email = req.body.email.toLowerCase();
   try {
     const { error } = validateUser(req.body);
     if (error) {
